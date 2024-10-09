@@ -1,2 +1,2 @@
 # KolinDemo
-Kotlin study only
+Kotlin study only,study and write
