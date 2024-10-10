@@ -1,6 +1,7 @@
 package com.douglas.kotlinone
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -12,8 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.douglas.kotlinone.ui.theme.KotlinOneTheme
+import kotlinx.coroutines.CoroutineName
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : ComponentActivity() {
+    val TAG = "douglas"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +35,13 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val mainScope = MainScope()
+        mainScope.launch (Dispatchers.IO + CoroutineName("顶层协程")) {//协程中有耗时操作，需要10S才能执行完成
+            Log.d(TAG,"协程开始执行")
+            delay(1000.times(10))
+            Log.d(TAG,"协程执行完成")
+        }
+        Log.d(TAG,"协程执行完成111")
     }
 }
 
