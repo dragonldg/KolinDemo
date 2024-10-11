@@ -36,12 +36,12 @@ class MainActivity : ComponentActivity() {
             }
         }
         val mainScope = MainScope()
-        mainScope.launch (Dispatchers.IO + CoroutineName("顶层协程")) {//协程中有耗时操作，需要10S才能执行完成
-            Log.d(TAG,"协程开始执行")
+        mainScope.launch (Dispatchers.Main+ CoroutineName("顶层协程")) {//协程中有耗时操作，需要10S才能执行完成
+            Log.d(TAG,"协程开始执行") // IO,Main时 S2
             delay(1000.times(10))
-            Log.d(TAG,"协程执行完成")
+            Log.d(TAG,"协程执行完成") // IO,Main时 S3
         }
-        Log.d(TAG,"协程执行完成111")
+        Log.d(TAG,"协程执行完成111") // IO,Main 时 S1
     }
 }
 
