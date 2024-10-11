@@ -4,18 +4,25 @@
 
     <application
         android:allowBackup="true"
-        android:testOnly="false"
-        tools:replace="android:testOnly"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/Theme.KotlinOne"
+        tools:replace="android:testOnly"
         tools:targetApi="31">
+        <service
+            android:name=".jetpack.livedata.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <!-- <activity -->
+        <!-- android:name=".jetpack.livedata.MainActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
-            android:name=".MainActivity"
+            android:name=".jetpack.livedata.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.KotlinOne">
