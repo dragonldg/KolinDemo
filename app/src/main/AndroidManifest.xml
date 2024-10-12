@@ -14,15 +14,15 @@
         android:theme="@style/Theme.KotlinOne"
         tools:replace="android:testOnly"
         tools:targetApi="31">
+
         <service
             android:name=".jetpack.livedata.MyService"
             android:enabled="true"
-            android:exported="true"></service>
-        <!-- <activity -->
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".jetpack.livedata.MainActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".jetpack.livedata.MainActivity"
+            android:name=".jetpack.hilt.dagger.KtMainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.KotlinOne">
