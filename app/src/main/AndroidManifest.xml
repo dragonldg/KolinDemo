@@ -14,11 +14,11 @@
         android:theme="@style/Theme.KotlinOne"
         tools:replace="android:testOnly"
         tools:targetApi="31">
-
         <activity
-            android:name=".jetpack.databinding.MainActivityKotlin"
+            android:name=".jetpack.viewmodel.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:configChanges="screenSize|orientation"
             android:theme="@style/Theme.KotlinOne">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
