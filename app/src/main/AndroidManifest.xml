@@ -15,14 +15,8 @@
         tools:replace="android:testOnly"
         tools:targetApi="31">
 
-        <service
-            android:name=".jetpack.livedata.MyService"
-            android:enabled="true"
-            android:exported="true" /> <!-- <activity -->
-        <!-- android:name=".jetpack.livedata.MainActivity" -->
-        <!-- android:exported="false" /> -->
         <activity
-            android:name=".jetpack.hilt.dagger.KtMainActivity"
+            android:name=".jetpack.databinding.MainActivityKotlin"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.KotlinOne">
@@ -31,7 +25,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- <activity -->
+        <!-- android:name=".jetpack.livedata.MainActivity" -->
+        <!-- android:exported="false" /> -->
+        <service
+            android:name=".jetpack.livedata.MyService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

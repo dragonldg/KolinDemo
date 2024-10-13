@@ -125,3 +125,30 @@ public class KtMainActivity_MembersInjector implements MemberInjector<KtMainActi
 
 
 Hilt Dagger2的二次封装
+使用的注解
+@AndroidEntryPoint
+MainActivity 自动将父类修改为 Hilt_MainActivity
+
+@HiltAndroidApp
+Application 自动将父类修改为 Hilt_Application
+
+@InstallIn(ActivityComponent.class(只能注入到activity) or ApplicationComponent.class(activity和application都支持))
+Module 抽象类
+
+@Singleton  全局单利 只能和ApplicationComponent.class配合使用
+
+@ActivityScoped 局部单利
+Module中的方法,必须配合ActivityComponent.class
+
+@Binds  实现接口和实现的绑定
+Module中的方法
+
+@Qualifier // 自定义限定符,根据限定符来获取module中到底调用了哪个方法
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BindDouglas{}
+
+
+原理:使用了APT和字节码插桩transform,自动生成了Hilt_MainActivity
+
+用专门的注解处理器:com.google.dagger:hilt-android-compiler:2.28-alpha
+API和注解:com.google.dagger:hilt-android:2.28-alpha
