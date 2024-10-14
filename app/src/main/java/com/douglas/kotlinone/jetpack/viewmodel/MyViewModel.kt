@@ -1,5 +1,6 @@
 package com.douglas.kotlinone.jetpack.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -9,5 +10,9 @@ import androidx.lifecycle.ViewModel
  */
 class MyViewModel : ViewModel() {
     var number:Int = 0
+
+    val info:MutableLiveData<String> by lazy { MutableLiveData() }
+
+
 
 }
